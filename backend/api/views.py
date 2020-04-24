@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.shortcuts import get_object_or_404
+from rest_framework.authtoken.models import Token
+from django.http import JsonResponse
 
 class RegisterListView(APIView):
     parser_classes = (MultiPartParser, FormParser,)
@@ -46,4 +48,10 @@ class RegisterView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Exception as message:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        
+
+def token_request(request):
+    try:
+        new_token = Token.objects.get_or_create(user=request.user)
+        return JsonResponse({'token': new_token[0].key}, status=status.HTTP_200_OK)
+    except Exception as message:
+        return JsonResponse({'messagem': 'você não tem permissão.'}, status=status.HTTP_401_UNAUTHORIZED)
