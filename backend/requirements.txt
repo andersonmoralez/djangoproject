@@ -5,7 +5,7 @@ Django==2.2.12
 django-fernet-fields==0.6
 django-hashid-field==3.1.1
 django-model-utils==4.0.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 hashids==1.2.0
 pycparser==2.20
 pytz==2019.3
