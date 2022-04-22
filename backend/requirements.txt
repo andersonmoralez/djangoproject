@@ -1,7 +1,7 @@
 bcrypt==3.1.7
 cffi==1.14.0
 cryptography==2.9.2
-Django==2.2.12
+Django==2.2.28
 django-fernet-fields==0.6
 django-hashid-field==3.1.1
 django-model-utils==4.0.0
